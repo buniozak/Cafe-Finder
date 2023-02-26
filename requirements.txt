@@ -1,3 +1,4 @@
+gunicorn==20.1.0
 altgraph==0.17.3
 Bootstrap-Flask==2.2.0
 certifi==2022.12.7
@@ -11,7 +12,6 @@ Flask-SQLAlchemy==3.0.3
 Flask==2.2.3
 game==0.0.5
 greenlet==2.0.2
-gunicorn==20.1.0
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
