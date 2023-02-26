@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Success{% endblock %}
+
+{% block content %}
+<style>
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+.card{
+padding-bottom: 50px;
+ background-color:#40513B;
+ transition: all 0.2s ease-in-out;
+
+}
+.card:hover{
+box-shadow: 0 0 10px rgba(100, 100, 100, 15.43);
+transform: translateY(-7px);
+}
+
+
+a{
+   color: white;
+text-decoration: none;
+}
+a:hover {
+    color: white;
+  text-decoration: none;}
+
+.asd{
+transition: all 0.2s ease-in-out;
+
+}
+
+.asd:hover{
+box-shadow: 0 0 10px rgba(100, 100, 100, 15.43);
+transform: translateY(-3px);
+
+}
+
+
+</style>
+
+<div class="container-fluid text-center">
+
+  <div class="container">
+    <div class="row">
+      {% for cafe in cafes %}
+         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4" style="padding-bottom: 50px; " >
+
+          <a href={{cafe.map_url}}>
+              <div class="card">
+            <img src={{cafe.img_url}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{cafe.name}}</h5>
+
+              {% if cafe.has_wifi == false %}
+                <h5 style="color:#AD7BE9">Cafe Wifi Status <i class="fa-solid fa-xmark" style="color:red"></i> </h5><br>
+                {% else %}
+                <h5 style="color:#AD7BE9">Cafe Wifi Status <img src="https://img.icons8.com/ios-glyphs/256/wifi-logo.png" alt="Bootstrap" width="40" height="44"></h5>
+                {% endif %}
+
+               <h5 style="color:#FFE7CC;padding-bottom:5px;"> Number of Seats  <img src="https://img.icons8.com/color/256/chair.png" alt="Bootstrap" width="40" height="44">{{cafe.seats}} </h5><br>
+             {% if cafe.has_wifi == false %}
+                 <h5 style="color:#8BF5FA">Coffe Socket Status   <i class="fa-solid fa-xmark" style="color:red"></i> </h5><br>
+
+              {% else %}
+              <h5 style="color:#8BF5FA;padding-bottom:5px;">Coffe Socket Status  <img src="https://img.icons8.com/fluency/256/plug.png" alt="Bootstrap" width="40" height="44"> <i class="fa-solid fa-check" style="color:yellow;"></i> </h5>
+                {% endif %}
+
+              <h5 style="color:#CDE990">Coffe Price <img src="https://img.icons8.com/officel/256/iced-coffee.png" alt="Bootstrap" width="40" height="44">{{cafe.coffee_price}} </h5><br>
+
+              <a href="#" class="btn btn-dark">Go Location</a>
+            </div>
+          </div>
+            </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+
+<p class="text-center" >
+  <a href="{{ url_for('home')  }}" >
+<button  class="btn btn-sm btn-dark asd" style="background-color:#F1DBBF">
+  <span class="badge badge-light" style="font-size: 26px; ">1</span>
+</button>
+        </a>
+    <a href="{{ url_for('other_page')  }}" >
+<button  class="btn btn-sm btn-dark asd" style="background-color:#B99B6B">
+  <span class="badge badge-light" style="font-size: 26px; ">2</span>
+</button>
+        </a>
+</p>
+
+
+{% endblock %}
